@@ -1,68 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Pinyon+Script&display=swap");
+
+:root {
+  --cream: #fbf1e6;
+  --ink: #2a1b1b;
+  --maroon: #6b0f1a;
+  --pink: #f4a6c4;
+  --butter: #fbeaa0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: system-ui, sans-serif;
-  background: #f7f7f5;
   margin: 0;
-  color: #1e2530;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.5;
 }
 
 .app {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 48px 5%;
+  text-align: center;
 }
 
+.app h1 {
+  font-size: clamp(44px, 7vw, 72px);
+  font-weight: 400;
+  margin: 0 0 32px;
+  color: var(--ink);
+}
+
+.app h1::after {
+  content: "";
+}
+
+/* Filter pills */
 .filter-bar {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 48px;
 }
 
 .filter-bar button {
-  padding: 0.4rem 0.9rem;
-  border: 1px solid #aab4c3;
+  padding: 10px 22px;
+  border: 2px solid var(--maroon);
   border-radius: 999px;
-  background: white;
+  background: #fff;
+  color: var(--maroon);
+  font-family: inherit;
+  font-size: 18px;
   cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.filter-bar button:hover {
+  transform: translateY(-2px);
 }
 
 .filter-bar button.active {
-  background: #3a5a80;
-  color: white;
-  border-color: #3a5a80;
+  background: var(--maroon);
+  color: #fff;
 }
 
+.filter-bar button:focus-visible,
+.links a:focus-visible {
+  outline: 3px solid var(--maroon);
+  outline-offset: 3px;
+}
+
+/* Card grid */
 .project-list {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 40px 36px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  padding: 8px;
 }
 
+/* Polaroid-style cards */
 .project-card {
-  background: white;
-  border: 1px solid #d5dbe5;
-  border-radius: 8px;
-  padding: 1rem;
+  position: relative;
+  background: #fff;
+  padding: 24px 20px 28px;
+  text-align: left;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-list .project-card:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.project-list .project-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.project-list .project-card:nth-child(3n) {
+  transform: rotate(-1deg);
+}
+
+.project-card:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
 .project-card h3 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--maroon);
+  padding-bottom: 12px;
+  border-bottom: 2px dashed var(--ink);
 }
 
 .project-card p {
-  margin: 0.4rem 0;
+  margin: 0 0 12px;
+  font-size: 20px;
 }
 
 .tech-stack {
-  color: #5b6573;
-  font-size: 0.9rem;
+  font-size: 16px !important;
+  opacity: 0.8;
+  color: var(--ink);
+  margin-bottom: 16px !important;
 }
 
+/* Pastel tints for the top of each card */
+.project-card::before {
+  content: "";
+  display: block;
+  height: 8px;
+  margin: -24px -20px 20px;
+  background: var(--pink);
+}
+
+.project-list .project-card:nth-child(3n + 2)::before {
+  background: #d5ecf9;
+}
+
+.project-list .project-card:nth-child(3n)::before {
+  background: var(--butter);
+}
+
+/* Links */
 .links {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.75rem;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .links a {
-  color: #3a5a80;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 2px solid var(--maroon);
+  border-radius: 999px;
+  background: var(--maroon);
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.links a:hover {
+  background: #fff;
+  color: var(--maroon);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .filter-bar button {
+    transition: none;
+  }
 }
