@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import projects from "./data/projects";
+import FilterBar from "./components/FilterBar";
+import ProjectList from "./components/ProjectList";
+import "./App.css";
+
+const TECH_OPTIONS = ["All", "React", "Node", "CSS"];
 
 function App() {
+  const [filter, setFilter] = useState("All");
+
+  const visibleProjects =
+    filter === "All"
+      ? projects
+      : projects.filter((project) => project.tech.includes(filter));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Portfolio Gallery</h1>
+      <FilterBar
+        options={TECH_OPTIONS}
+        selected={filter}
+        onSelect={setFilter}
+      />
+      <ProjectList projects={visibleProjects} />
     </div>
   );
 }
