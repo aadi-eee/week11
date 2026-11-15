@@ -16,7 +16,9 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Portfolio Gallery</h1>
+            <h1>
+        Portfolio <span className="script">Gallery</span>
+      </h1>
       <FilterBar
         options={TECH_OPTIONS}
         selected={filter}
