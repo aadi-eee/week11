@@ -20,8 +20,8 @@ const projects = [
     title: "Weather Dashboard",
     description: "Shows current weather and a 5-day forecast for any city.",
     tech: ["React", "Node", "CSS"],
-    github: "https://github.com/aadi-eee/week11",
-    demo: "https://week11-rho.vercel.app/",
+    github: "https://github.com/aadi-eee/webprogramming",
+    demo: "https://aadi-eee.github.io/webprogramming/week6/weather%20(3).html",
   },
   {
     id: 6,
