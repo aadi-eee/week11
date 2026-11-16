@@ -2,10 +2,10 @@ const projects = [
   {
     id: 1,
     title: "Task Tracker",
-    description: "A to-do app with add, complete, and delete features.",
-    tech: ["React", "CSS"],
-    github: "https://github.com/aadi-eee/week11",
-    demo: "https://week11-rho.vercel.app/",
+    description: "A to-do list with add, complete, delete and filter by status, saved in the browser.",
+    tech: ["JavaScript", "HTML", "CSS"],
+    github: "https://github.com/aadi-eee/task-tracker",
+    demo: "https://aadi-eee.github.io/task-tracker/",
   },
   {
         id: 2,
