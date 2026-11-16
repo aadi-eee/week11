@@ -4,7 +4,7 @@ import FilterBar from "./components/FilterBar";
 import ProjectList from "./components/ProjectList";
 import "./App.css";
 
-const TECH_OPTIONS = ["All", "React", "Node", "CSS"];
+const TECH_OPTIONS = ["All", "React", "JavaScript", "HTML", "CSS"];
 
 function App() {
   const [filter, setFilter] = useState("All");
